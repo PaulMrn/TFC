@@ -5,12 +5,12 @@ import {AppComponent} from "./app";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
-import {About} from './about/about';
+import {Services} from './services/services';
 import {Home} from './home/home';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, About, Home],
+  declarations: [AppComponent, Services, Home],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
   providers   : [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap   : [AppComponent]

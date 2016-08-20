@@ -1,5 +1,5 @@
 import {Routes} from '@angular/router';
-import {About} from './services/services';
+import {Services} from './services/services';
 import {Home} from './home/home';
 
 export const rootRouterConfig: Routes = [
