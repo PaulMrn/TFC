@@ -4,10 +4,4 @@
     <li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
 </ul>
 
-<!--<p>selected services :</p>
-
-<ul>
-    <li *ngFor="let item of chosenServices">{{item}}</li>
-</ul>-->
-
 <a [routerLink]="['/services']">Valider les services sélectionnés</a>

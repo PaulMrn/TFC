@@ -1,12 +1,4 @@
-<nav>
-    <a [routerLink]="['/home']">Home</a>
-    <a [routerLink]="['/services/flight']">Flight</a>
-    <a [routerLink]="['/services/hotel']">Hotel</a>
-    <a [routerLink]="['/services/car']">Car</a>
-    <a [routerLink]="['/services/restaurant']">Restaurant</a>
-</nav>
-
-<a [routerLink]="['/services/car']" *ngFor="let item of chosenServices">{{item}} </a>
+<a [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}} </a>
 
 <h3>Votre service</h3>
 
