@@ -5,5 +5,7 @@ import {Component} from '@angular/core';
   styleUrls: [],
   templateUrl: './services.html'
 })
+
 export class Services {
+  public chosenServices = JSON.parse(localStorage.getItem('menuItems'));
 }

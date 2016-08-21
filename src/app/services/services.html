@@ -6,6 +6,8 @@
     <a [routerLink]="['/services/restaurant']">Restaurant</a>
 </nav>
 
+<a [routerLink]="['/services/car']" *ngFor="let item of chosenServices">{{item}} </a>
+
 <h3>Votre service</h3>
 
 <router-outlet></router-outlet>

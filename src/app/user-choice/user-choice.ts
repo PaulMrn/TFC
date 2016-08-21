@@ -12,6 +12,6 @@ export class UserChoice {
     
     selectedServices (service){
         this.chosenServices.push(service);
-        alert(service + 'selected')
+        localStorage.menuItems = JSON.stringify(this.chosenServices);
     }
 }
