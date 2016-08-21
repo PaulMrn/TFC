@@ -1,3 +1,10 @@
-*{
-    color: red;
+html, body {
+    margin : 0 auto;
+}
+
+.top, .bot{
+    margin: 0;
+    background-color: deepskyblue;
+    height: 100px;
+    border-bottom: 2px solid white;
 }
