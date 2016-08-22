@@ -1,7 +1,7 @@
 <h3>Sélection des prestations</h3>
 
 <ul>
-    <li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
+	<li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
 </ul>
 
 <a [routerLink]="['/services']">Valider les services sélectionnés</a>
