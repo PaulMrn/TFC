@@ -1,4 +1,12 @@
-<a [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}} </a>
+<div class="container-fluid services-navbar">
+	<nav class="row vertical-center">
+		<div class="col-lg-2">Logo</div>
+		<div class="col-lg-7">
+			<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}}</a>
+		</div>
+		<div class="col-lg-3">Price</div>
+	</nav>
+</div>
 
 <h3>Votre service</h3>
 

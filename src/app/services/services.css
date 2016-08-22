@@ -1,0 +1,17 @@
+.services-navbar{
+	position: relative;
+	height: 200px;
+  border-bottom: 4px solid #CF2127;
+	text-align: center;
+}
+
+.vertical-center{
+  position: absolute;
+	width: 100%;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.menu-item{
+	padding: 0px 25px;
+}
