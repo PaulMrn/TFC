@@ -1,7 +1,7 @@
 .services-navbar{
 	position: relative;
-	height: 200px;
-  border-bottom: 4px solid #CF2127;
+	height: 150px;
+  border-bottom: 3px solid #CF2127;
 	text-align: center;
 }
 
@@ -21,5 +21,5 @@
 }
 
 .logo-services{
-	height: 150px;
+	height: 120px;
 }
