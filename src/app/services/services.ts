@@ -7,5 +7,5 @@ import {Component} from '@angular/core';
 })
 
 export class Services {
-  public chosenServices = JSON.parse(localStorage.getItem('menuItems'));
+  public chosenServices = JSON.parse(sessionStorage.getItem('menuItems'));
 }

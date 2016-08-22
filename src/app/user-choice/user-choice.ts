@@ -11,25 +11,30 @@ export class UserChoice {
 	public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];
 
 	selectedServices(service) {
-		if (!localStorage.getItem("menuItems")) {
-			localStorage.setItem("menuItems", "[]");
+		if (!sessionStorage.getItem("menuItems")) {
+			sessionStorage.setItem("menuItems", "[]");
 		}
-		var list = JSON.parse(localStorage.getItem("menuItems"));
+
+		var list = JSON.parse(sessionStorage.getItem("menuItems"));
 		var exist = false;
+
 		for (var i = 0; i < list.length; i++) {
 			if (list[i] == service) {
 				exist = true;
 			}
 		}
+
 		if (!exist) {
 			list.push(service);
 		}
 		else {
 
 		}
-		localStorage.setItem("menuItems", JSON.stringify(list));
-		for (var i = 0; i < localStorage.length; i++) {
-			console.log(localStorage.getItem(localStorage.key(i)))
-		}
+
+		sessionStorage.setItem("menuItems", JSON.stringify(list));
+
+		/*for (var i = 0; i < sessionStorage.length; i++) {
+			console.log(sessionStorage.getItem(sessionStorage.key(i)))
+		}*/
 	}
 }
