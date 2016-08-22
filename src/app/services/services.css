@@ -13,11 +13,16 @@
 }
 
 .v-center{
-	padding-top: 62px;
+	padding-top: 20px;
 }
 
 .menu-item{
-	padding: 0px 25px;
+	padding: 0px 40px;
+}
+
+.logo-menu{
+	width: 70px
+	
 }
 
 .logo-services{

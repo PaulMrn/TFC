@@ -5,7 +5,9 @@
 				<img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png">
 			</div>
 			<div class="col-lg-7 v-center">
-				<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}}</a>
+				<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">
+					<img [src]="'../../../assets/img/service/' + item.toLowerCase() + '.png'" class="logo-menu"/>
+				</a>
 			</div>
 			<div class="col-lg-3 v-center">Price</div>
 		</div>
