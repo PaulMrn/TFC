@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-lg-3 available-services" *ngFor="let service of servicesList" (click)="selectedServices(service)">
 			<span class="align-helper"></span>
-			<img class="services-img" [src]="'../../../assets/img/services/' + service.toLowerCase() + '.png'"/>
+			<img class="services-img" [src]="'../../../assets/img/service/' + service.toLowerCase() + '.png'"/>
 			<span class="services-title">{{service}}</span>
 		</div>
 	</div>
