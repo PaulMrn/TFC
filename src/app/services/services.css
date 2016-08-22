@@ -12,6 +12,14 @@
   transform: translate(-50%,-50%);
 }
 
+.v-center{
+	padding-top: 62px;
+}
+
 .menu-item{
 	padding: 0px 25px;
+}
+
+.logo-services{
+	height: 150px;
 }

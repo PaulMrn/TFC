@@ -1,10 +1,14 @@
-<div class="container-fluid services-navbar">
-	<nav class="row vertical-center">
-		<div class="col-lg-2">Logo</div>
-		<div class="col-lg-7">
-			<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}}</a>
+<div class="container-fluid">
+	<nav class="row services-navbar">
+		<div class="vertical-center">
+			<div class="col-lg-2">
+				<img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png">
+			</div>
+			<div class="col-lg-7 v-center">
+				<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">{{item}}</a>
+			</div>
+			<div class="col-lg-3 v-center">Price</div>
 		</div>
-		<div class="col-lg-3">Price</div>
 	</nav>
 </div>
 
