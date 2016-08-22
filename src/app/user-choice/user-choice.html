@@ -15,10 +15,12 @@
 </div>
 <div class="container services-choices">
 	<h3 class="choices-title">Choose your services</h3>
-
-	<ul>
-		<li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
-	</ul>
-
+	<div class="row">
+		<div class="col-lg-3 available-services" *ngFor="let service of servicesList" (click)="selectedServices(service)">
+			<span class="align-helper"></span>
+			<img class="services-img" [src]="'../../../assets/img/services/' + service.toLowerCase() + '.png'"/>
+			<span class="services-title">{{service}}</span>
+		</div>
+	</div>
 	<a [routerLink]="['/services']">Valider les services sélectionnés</a>
 </div>

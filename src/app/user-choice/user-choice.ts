@@ -11,6 +11,7 @@ export class UserChoice {
 	public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];
 
 	selectedServices(service) {
+
 		if (!sessionStorage.getItem("menuItems")) {
 			sessionStorage.setItem("menuItems", "[]");
 		}
@@ -28,13 +29,13 @@ export class UserChoice {
 			list.push(service);
 		}
 		else {
-
+			list.pop(service);
 		}
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
-		/*for (var i = 0; i < sessionStorage.length; i++) {
+		for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
-		}*/
+		}
 	}
 }
