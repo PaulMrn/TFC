@@ -1,7 +1,24 @@
-<h3>Sélection des prestations</h3>
+<div class="container-fluid">
+	<nav class="row services-navbar">
+		<div class="vertical-center">
+			<div class="col-lg-2">
+				<img class="logo-choice" alt="logo travel fashion club" src="../../../assets/img/logo.png">
+			</div>
+			<div class="col-lg-8">
+				<h2 class="title">TRAVEL FASHION CLUB</h2>
+			</div>
+			<div class="col-lg-2">
+				<img class="logo-choice-2" alt="logo travel fashion club" src="../../../assets/img/client.png">
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="container services-choices">
+	<h3 class="choices-title">Choose your services</h3>
 
-<ul>
-	<li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
-</ul>
+	<ul>
+		<li *ngFor="let service of servicesList" (click)="selectedServices(service)">{{service}}</li>
+	</ul>
 
-<a [routerLink]="['/services']">Valider les services sélectionnés</a>
+	<a [routerLink]="['/services']">Valider les services sélectionnés</a>
+</div>
