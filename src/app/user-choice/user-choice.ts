@@ -9,6 +9,7 @@ import {Component} from '@angular/core';
 export class UserChoice {
 	public chosenServices = [];
 	public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];
+	public showStyle: boolean;
 
 	selectedServices(service) {
 
@@ -31,11 +32,22 @@ export class UserChoice {
 		else {
 			list.pop(service);
 		}
+		
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
-		for (var i = 0; i < sessionStorage.length; i++) {
+
+		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
-		}
+		}*/
 	}
+
+	getStyle() {
+    if(this.showStyle){
+      return "red";
+    } else {
+      return "";
+    }
+  }
+
 }

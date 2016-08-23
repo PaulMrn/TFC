@@ -16,10 +16,17 @@
 <div class="container services-choices">
 	<h3 class="choices-title">Choose your services</h3>
 	<div class="row">
-		<div class="col-lg-3 available-services" *ngFor="let service of servicesList" (click)="selectedServices(service)">
-			<span class="align-helper"></span>
-			<img class="services-img" [src]="'../../../assets/img/service/' + service.toLowerCase() + '.png'"/>
-			<span class="services-title">{{service}}</span>
+		<div class="col-lg-3" *ngFor="let service of servicesList" (click)="selectedServices(service)">
+			<div class="available-services">
+				<span class="align-helper"></span>
+				<img class="services-img" [src]="'../../../assets/img/service/' + service.toLowerCase() + '.png'" />
+				<span class="services-title" [style.color]="getStyle()" (click)="showStyle = !showStyle;">{{service}}</span>
+			</div>
+			<!--<div class="available-services" *ngIf="exist">
+				<span class="align-helper"></span>
+				<img class="services-img" [src]="'../../../assets/img/service/' + service.toLowerCase() + 'Selec.png'" />
+				<span class="services-title">{{service}}</span>
+			</div>-->
 		</div>
 	</div>
 	<a [routerLink]="['/services']">Valider les services sélectionnés</a>
