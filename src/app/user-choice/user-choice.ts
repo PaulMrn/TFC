@@ -7,8 +7,10 @@ import {Component} from '@angular/core';
 })
 
 export class UserChoice {
-	public chosenServices = [];
-	/*public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];*/
+
+	public chosenServices = [];		
+	public showStyle: boolean = false;
+	public exist: boolean = false;
 	public servicesList= [{
 			name: "Flight",
 			selected: false,
@@ -41,8 +43,6 @@ export class UserChoice {
 			name: "Hostess",
 			selected: false,
 		}]
-	public showStyle: boolean = false;
-	public exist: boolean = false;
 
 	selectedServices(service, index) {
 
@@ -62,28 +62,34 @@ export class UserChoice {
 			list.push(this.servicesList[index].name);
 			this.servicesList[index].selected = true;
 
-		}
-		else {
-			list.splice(this.servicesList[index].name, 1)
+		} else {
+			list.splice(this.servicesList[index], 1)
 			this.servicesList[index].selected = false;
-
 		}
 
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
 		
-console.log(this.servicesList[index].name);
-console.log(list);
-console.log(this.servicesList[index].selected);
+		console.log(this.servicesList[index].name);
+		console.log(list);
+		console.log(this.servicesList[index]);
 		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
 		}*/
 	}
 
-	getStyle() {
+	getColor() {
 		if (this.showStyle) {
 			return "#CF2127";
+		} else {
+			return "";
+		}
+	}
+
+	getColor2() {
+		if (!this.showStyle) {
+			return "#000";
 		} else {
 			return "";
 		}
