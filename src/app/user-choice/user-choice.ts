@@ -8,7 +8,39 @@ import {Component} from '@angular/core';
 
 export class UserChoice {
 	public chosenServices = [];
-	public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];
+	/*public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];*/
+	public servicesList= [{
+			name: "Flight",
+			selected: false,
+		},
+		{
+			name: "Hotel",
+			selected: false,
+		},
+		{
+			name: "Restaurant",
+			selected: false,
+		},
+		{
+			name: "Car",
+			selected: false,
+		},
+		{
+			name: "Delivery",
+			selected: false,
+		},
+		{
+			name: "Interpreter",
+			selected: false,
+		},
+		{
+			name: "VAT",
+			selected: false,
+		},
+		{
+			name: "Hostess",
+			selected: false,
+		}]
 	public showStyle: boolean = false;
 	public exist: boolean = false;
 
@@ -19,28 +51,31 @@ export class UserChoice {
 		}
 
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
-		var index = list.indexOf(service);
 
 		for (var i = 0; i < list.length; i++) {
-			if (list[i] == service) {
-				this.exist = true;
+			if (list[i] == this.servicesList[index].name) {
+				this.servicesList[index].selected = true;
 			}
 		}
 
-		if (!this.exist) {
-			list.push(service);
-			this.exist = true;
+		if (!this.servicesList[index].selected) {
+			list.push(this.servicesList[index].name);
+			this.servicesList[index].selected = true;
+
 		}
 		else {
-			list.splice(index, 1)
-			this.exist = false;
+			list.splice(this.servicesList[index].name, 1)
+			this.servicesList[index].selected = false;
+
 		}
 
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
-		console.log(this.exist);
-
+		
+console.log(this.servicesList[index].name);
+console.log(list);
+console.log(this.servicesList[index].selected);
 		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
 		}*/
