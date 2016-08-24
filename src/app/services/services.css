@@ -28,3 +28,7 @@
 .logo-services{
 	height: 120px;
 }
+
+.menu-services{
+	display: inline; 
+}
