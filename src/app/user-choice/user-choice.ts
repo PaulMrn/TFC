@@ -63,7 +63,7 @@ export class UserChoice {
 			this.servicesList[index].selected = true;
 
 		} else {
-			list.splice(this.servicesList[index], 1)
+			list.splice(list.indexOf(this.servicesList[index].name), 1)
 			this.servicesList[index].selected = false;
 		}
 
@@ -73,7 +73,7 @@ export class UserChoice {
 		
 		console.log(this.servicesList[index].name);
 		console.log(list);
-		console.log(this.servicesList[index]);
+		console.log(list.indexOf(this.servicesList[index].name));
 		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
 		}*/
@@ -88,7 +88,7 @@ export class UserChoice {
 	}
 
 	getColor2() {
-		if (!this.showStyle) {
+		if (this.showStyle) {
 			return "#000";
 		} else {
 			return "";
