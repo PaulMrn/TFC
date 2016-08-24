@@ -6,6 +6,9 @@ import {Component} from '@angular/core';
   templateUrl: './services.html'
 })
 
-export class Services {
+export class Services{
+
   public chosenServices = JSON.parse(sessionStorage.getItem('menuItems'));
+
+
 }
