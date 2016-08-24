@@ -9,33 +9,37 @@ import {Component} from '@angular/core';
 export class UserChoice {
 	public chosenServices = [];
 	public servicesList = ['Flight', "Hotel", "Restaurant", "Car", "Delivery", "Interpreter", "VAT", "Hostess"];
-	public showStyle: boolean;
+	public showStyle: boolean = false;
+	public exist: boolean = false;
 
-	selectedServices(service) {
+	selectedServices(service, index) {
 
 		if (!sessionStorage.getItem("menuItems")) {
 			sessionStorage.setItem("menuItems", "[]");
 		}
 
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
-		var exist = false;
+		var index = list.indexOf(service);
 
 		for (var i = 0; i < list.length; i++) {
 			if (list[i] == service) {
-				exist = true;
+				this.exist = true;
 			}
 		}
 
-		if (!exist) {
+		if (!this.exist) {
 			list.push(service);
+			this.exist = true;
 		}
 		else {
-			list.pop(service);
+			list.splice(index, 1)
+			this.exist = false;
 		}
-		
+
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
+		console.log(this.exist);
 
 		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
@@ -43,11 +47,10 @@ export class UserChoice {
 	}
 
 	getStyle() {
-    if(this.showStyle){
-      return "red";
-    } else {
-      return "";
-    }
-  }
-
+		if (this.showStyle) {
+			return "#CF2127";
+		} else {
+			return "";
+		}
+	}
 }
