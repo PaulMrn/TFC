@@ -2,14 +2,17 @@
 	<nav class="row services-navbar">
 		<div class="vertical-center">
 			<div class="col-lg-2">
-				<img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png">
+				<a [routerLink]="['/home']"><img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
 			</div>
 			<div class="col-lg-7 v-center">
-				<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices">
-					<img [src]="'../../../assets/img/service/' + item.toLowerCase() + '.png'" class="logo-menu"/>				
+				<a class="menu-item" [routerLink]="['/services/' + item.toLowerCase()]" *ngFor="let item of chosenServices; let i = index;" (click)="currentService(i)">
+					<img class="logo-menu" [src]="'../../../assets/img/service/' + item.toLowerCase() + '.png'"/>				
 				</a>
 			</div>
-			<div class="col-lg-3 v-center">Price</div>
+			<div class="col-lg-3  v-center">
+				<img class="logo-menu" src="../../../assets/img/service/finres.png">
+				<span>price</span>
+			</div>
 		</div>
 	</nav>
 </div>

@@ -8,9 +8,6 @@ import {Component} from '@angular/core';
 
 export class UserChoice {
 
-	public chosenServices = [];		
-	public showStyle: boolean = false;
-	public exist: boolean = false;
 	public servicesList= [{
 			name: "Flight",
 			selected: false,
@@ -49,6 +46,9 @@ export class UserChoice {
 		if (!sessionStorage.getItem("menuItems")) {
 			sessionStorage.setItem("menuItems", "[]");
 		}
+		if (!sessionStorage.getItem("itemsList")) {
+			sessionStorage.setItem("itemsList", "[]");
+		}
 
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
 
@@ -67,7 +67,7 @@ export class UserChoice {
 			this.servicesList[index].selected = false;
 		}
 
-
+		sessionStorage.setItem("itemsList", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
 	}

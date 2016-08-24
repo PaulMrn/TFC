@@ -21,8 +21,8 @@
 }
 
 .logo-menu{
-	width: 70px
-	
+	width: 70px;
+	cursor: pointer;
 }
 
 .logo-services{
