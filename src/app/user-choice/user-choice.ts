@@ -73,25 +73,17 @@ export class UserChoice {
 		
 		console.log(this.servicesList[index].name);
 		console.log(list);
-		console.log(list.indexOf(this.servicesList[index].name));
+		console.log(this.servicesList[index].selected);
 		/*for (var i = 0; i < sessionStorage.length; i++) {
 			console.log(sessionStorage.getItem(sessionStorage.key(i)))
 		}*/
 	}
 
 	getColor() {
-		if (this.showStyle) {
 			return "#CF2127";
-		} else {
-			return "";
-		}
 	}
 
 	getColor2() {
-		if (this.showStyle) {
 			return "#000";
-		} else {
-			return "";
-		}
 	}
 }
