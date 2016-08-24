@@ -1,7 +1,12 @@
 .services-navbar{
 	position: relative;
-	height: 200px;
-    border-bottom: 4px solid #CF2127;
+	height: 150px;
+    border-bottom: 3px solid #CF2127;
+    -moz-box-shadow: 0px 5px 30px 1px #656565;
+    -webkit-box-shadow: 0px 5px 30px 1px #656565;
+    -o-box-shadow: 0px 5px 30px 1px #656565;
+    box-shadow: 0px 5px 30px 1px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=180, Strength=30);
 	text-align: center;
 }
 
@@ -19,16 +24,16 @@
 .title{
     font-size: 52px;
     margin: 0;
-    padding-top: 46.5px;
+    padding-top: 21.5px;
 }
 
 .logo-choice{
-	height: 150px;
+	height: 100px;
 }
 
 .logo-choice-2{
 	height: 80px;
-    margin-top: 35px;
+    margin-top: 10px;
 }
 
 .services-choices{
@@ -37,6 +42,9 @@
 
 .choices-title{
     font-size: 28px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    font-weight: 600;
 }
 
 .available-services{
@@ -63,3 +71,35 @@
     padding-top: 20px;
 }
 
+.next-btn{
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.validation-btn{
+    font-size: 22px;
+    color: #FFF;
+    background-color: #F5858A;
+    padding: 20px 250px;
+    margin-top: 100px;
+    transition: 0.2s all;
+}
+
+.validation-btn:hover{
+    text-decoration: none;
+    background-color: #FFF;
+    color: #F5858A;
+    border: 2px solid #F5858A;
+
+}
+
+.choices-footer{
+    height: 100px;
+    background-color: #eee;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.choices-footer p{
+    margin-bottom: 0px;
+}

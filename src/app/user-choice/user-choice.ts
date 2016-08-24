@@ -70,13 +70,6 @@ export class UserChoice {
 
 		sessionStorage.setItem("menuItems", JSON.stringify(list));
 
-		
-		console.log(this.servicesList[index].name);
-		console.log(list);
-		console.log(this.servicesList[index].selected);
-		/*for (var i = 0; i < sessionStorage.length; i++) {
-			console.log(sessionStorage.getItem(sessionStorage.key(i)))
-		}*/
 	}
 
 	getColor() {
