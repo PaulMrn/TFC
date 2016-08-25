@@ -7,12 +7,11 @@ import {Component} from '@angular/core';
 })
 
 export class Services{
-  public show:boolean = false;
-  public prevClicked:number = -1;
+
   public chosenServices = JSON.parse(sessionStorage.getItem('menuItems'));
   public menuItems = JSON.parse(sessionStorage.getItem('itemsList'));
 
-  currentService(index) {
+  currentService(item, index) {
 
     for (var j = 0; j < this.menuItems.length; j++) {  
       console.log(this.menuItems[j].selected);
@@ -20,10 +19,6 @@ export class Services{
 		}
 
     this.menuItems[index].selected = true;
-    
-    console.log(this.chosenServices);
-    console.log(this.menuItems);
-    console.log(this.chosenServices[index]);
 
   }
   

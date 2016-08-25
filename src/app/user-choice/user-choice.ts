@@ -8,10 +8,11 @@ import {Component} from '@angular/core';
 
 export class UserChoice {
 
-	public servicesList= [{
-			name: "Flight",
-			selected: false,
-		},
+	public nextMenu = [];
+	public servicesList = [{
+		name: "Flight",
+		selected: false,
+	},
 		{
 			name: "Hotel",
 			selected: false,
@@ -60,23 +61,25 @@ export class UserChoice {
 
 		if (!this.servicesList[index].selected) {
 			list.push(this.servicesList[index].name);
+			this.nextMenu.push({ name: list[list.length -1], selected: false })
 			this.servicesList[index].selected = true;
-
 		} else {
-			list.splice(list.indexOf(this.servicesList[index].name), 1)
+			list.splice(list.indexOf(this.servicesList[index].name), 1);
+			this.nextMenu.splice(this.nextMenu.indexOf(this.nextMenu), 1);
 			this.servicesList[index].selected = false;
 		}
 
-		sessionStorage.setItem("itemsList", JSON.stringify(this.servicesList));
-		sessionStorage.setItem("menuItems", JSON.stringify(list));
-
+		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
+		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
+		
+		console.log(this.nextMenu);	
 	}
-
+	
 	getColor() {
-			return "#CF2127";
+		return "#CF2127";
 	}
 
 	getColor2() {
-			return "#000";
+		return "#000";
 	}
 }
