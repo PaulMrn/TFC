@@ -82,4 +82,9 @@ export class UserChoice {
 	getColor2() {
 		return "#000";
 	}
+
+	putSelecMenu() {
+		this.nextMenu[0].selected = true;
+		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
+	}
 }
