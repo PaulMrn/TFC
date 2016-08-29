@@ -32,3 +32,9 @@
 .menu-services{
 	display: inline; 
 }
+
+.change-butt{
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}
