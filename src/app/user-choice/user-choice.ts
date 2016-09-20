@@ -52,6 +52,15 @@ export class UserChoice {
 		}
 
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
+		var clickedElement = this.servicesList[index].name;
+		var indexOfClickedElement = -1;
+		for(var i = 0; i < this.nextMenu.length; i++){
+			if(this.nextMenu[i].name === clickedElement){
+				indexOfClickedElement = i;
+				console.log(this.nextMenu[i].name);
+				break;
+			}
+		}
 
 		for (var i = 0; i < list.length; i++) {
 			if (list[i] == this.servicesList[index].name) {
@@ -65,14 +74,16 @@ export class UserChoice {
 			this.servicesList[index].selected = true;
 		} else {
 			list.splice(list.indexOf(this.servicesList[index].name), 1);
-			this.nextMenu.splice(this.nextMenu.indexOf(this.nextMenu), 1);
+			this.nextMenu.splice(indexOfClickedElement, 1);
 			this.servicesList[index].selected = false;
 		}
-
+console.log(this.nextMenu.length);
+console.log(indexOfClickedElement);
+console.log(clickedElement);
+/*console.log(this.servicesList[index].name);
+console.log(clickedElement);*/
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-		
-		console.log(this.nextMenu);	
 	}
 	
 	getColor() {
