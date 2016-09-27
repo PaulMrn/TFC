@@ -5,7 +5,7 @@
 				<a [routerLink]="['/home']"><img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
 			</div>
 			<div class="col-lg-7 v-center">
-				<a class="menu-item" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of menuItems; let i = index;" (click)="currentService(item.name, i)">
+				<a class="menu-item" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of selectedMenu; let i = index;" (click)="currentService(item.name, i)">
 					<div class="menu-services" *ngIf="item.selected">
 						<img class="logo-menu" [src]="'../../../assets/img/service/' + item.name.toLowerCase() + 'Selec.png'"/>
 					</div>
@@ -21,7 +21,40 @@
 		</div>
 	</nav>
 </div>
-
-<h3>Votre service</h3>
+<div class="container-fluid dropdown">
+	<div class="row">
+		<div class="col-lg-12">
+			<div [class.services-dropdown]="toggled" class="services-box">
+				<div class="col-lg-6" *ngFor="let service of menu; let i = index;">
+					<div *ngIf="service.selected">
+						<div class="div-icons">
+							<img class="menu-icons" [src]="'../../../assets/img/service/' + service.name.toLowerCase() + 'Selec.png'"/>
+						</div>
+						<span class="services-title" [style.color]="getColor()">{{service.name}}</span>
+						<div class="check">
+							<label class="switch" (click)="selectionSystem(service, i)">
+								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">								
+								<div class="slider round"></div>
+							</label>
+						</div>	
+					</div>
+					<div *ngIf="!service.selected">
+						<div class="div-icons">
+							<img class="menu-icons" [src]="'../../../assets/img/service/' + service.name.toLowerCase() + '.png'"/>
+						</div>
+						<span class="services-title" [style.color]="getColor2()">{{service.name}}</span>
+						<div class="check">
+							<label class="switch" (click)="selectionSystem(service, i)">
+								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">
+								<div class="slider round"></div>
+							</label>
+						</div>	
+					</div>
+				</div>
+				<p (click)="toggled = !toggled;">Change your services</p>
+			</div>
+		</div>
+	</div>
+</div>
 
 <router-outlet></router-outlet>

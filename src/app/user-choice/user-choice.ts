@@ -8,6 +8,8 @@ import {Component} from '@angular/core';
 
 export class UserChoice {
 
+
+	public firstItem = "";
 	public nextMenu = [];
 	public servicesList = [{
 		name: "Flight",
@@ -54,6 +56,7 @@ export class UserChoice {
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
 		var clickedElement = this.servicesList[index].name;
 		var indexOfClickedElement = -1;
+
 		for(var i = 0; i < this.nextMenu.length; i++){
 			if(this.nextMenu[i].name === clickedElement){
 				indexOfClickedElement = i;
@@ -67,7 +70,7 @@ export class UserChoice {
 				this.servicesList[index].selected = true;
 			}
 		}
-
+		console.log(this.servicesList);
 		if (!this.servicesList[index].selected) {
 			list.push(this.servicesList[index].name);
 			this.nextMenu.push({ name: list[list.length -1], selected: false })
@@ -77,13 +80,14 @@ export class UserChoice {
 			this.nextMenu.splice(indexOfClickedElement, 1);
 			this.servicesList[index].selected = false;
 		}
-console.log(this.nextMenu.length);
-console.log(indexOfClickedElement);
-console.log(clickedElement);
-/*console.log(this.servicesList[index].name);
-console.log(clickedElement);*/
+		if(this.nextMenu.length == 0){
+
+		} else {
+			this.firstItem = this.nextMenu[0].name.toLowerCase();
+		}
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
+		
 	}
 	
 	getColor() {

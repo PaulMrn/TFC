@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AppModule } from '../app.module';
 
 @Component({
   selector: 'services',
@@ -8,18 +10,46 @@ import {Component} from '@angular/core';
 
 export class Services{
 
-  public chosenServices = JSON.parse(sessionStorage.getItem('menuItems'));
-  public menuItems = JSON.parse(sessionStorage.getItem('itemsList'));
+  public menu = JSON.parse(sessionStorage.getItem('menuItems'));
+  public selectedMenu = JSON.parse(sessionStorage.getItem('itemsList'));
 
-  currentService(item, index) {
+   currentService(item, index) {
 
-    for (var j = 0; j < this.menuItems.length; j++) {  
-      console.log(this.menuItems[j].selected);
-      this.menuItems[j].selected = false;
+    for (var j = 0; j < this.selectedMenu.length; j++) {  
+      this.selectedMenu[j].selected = false;
 		}
+      this.selectedMenu[index].selected = true;
+    }
 
-    this.menuItems[index].selected = true;
+  selectionSystem(service, index) {
 
+    console.log(this.menu[index]);
+    if(this.menu[index].selected){
+      this.menu[index].selected = false;
+    } else {
+      this.menu[index].selected = true;
+    }  
+    for(var j = 0; j < this.selectedMenu.length; j++){
+      if(this.menu[index].name == this.selectedMenu[j].name){
+        this.selectedMenu.splice([j], 1);
+        console.log('test');
+      }if (this.menu[index].selected){
+        this.selectedMenu.push({ name: this.menu[index].name, selected: false });
+        break;
+      }
+    }
+    this.selectedMenu[0].selected= true;
+  }
+  getColor() {
+		return "#CF2127";
+	}
+
+	getColor2() {
+		return "#000";
+	}
+
+  dropdownHeight(){
+    return "420px";
   }
   
 }
