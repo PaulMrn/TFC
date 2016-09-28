@@ -22,8 +22,9 @@ export class Services{
     }
 
   selectionSystem(service, index) {
-
-    console.log(this.menu[index]);
+    console.log(this.selectedMenu.length);
+    console.log(this.selectedMenu);
+    
     if(this.menu[index].selected){
       this.menu[index].selected = false;
     } else {
@@ -33,11 +34,15 @@ export class Services{
       if(this.menu[index].name == this.selectedMenu[j].name){
         this.selectedMenu.splice([j], 1);
         console.log('test');
-      }if (this.menu[index].selected){
+      }
+      if (this.menu[index].selected){
         this.selectedMenu.push({ name: this.menu[index].name, selected: false });
         break;
       }
     }
+    /*if(this.selectedMenu.lenght == 0){
+      this.selectedMenu.push({ name: this.menu[index].name, selected: false });
+    }*/
     this.selectedMenu[0].selected= true;
   }
   getColor() {
