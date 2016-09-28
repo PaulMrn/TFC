@@ -149,4 +149,7 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
 }
