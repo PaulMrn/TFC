@@ -8,13 +8,16 @@ import {Component} from '@angular/core';
 
 export class UserChoice {
 
-
+	// first item in nextMenu to built router-link url
 	public firstItem = "";
+	// empty array to store selected menu item
 	public nextMenu = [];
-	public servicesList = [{
+	// all menu item available
+	public servicesList = [
+		{
 		name: "Flight",
 		selected: false,
-	},
+		},
 		{
 			name: "Hotel",
 			selected: false,
@@ -44,8 +47,10 @@ export class UserChoice {
 			selected: false,
 		}]
 
+	// on click on available menu item
 	selectedServices(service, index) {
 
+		// set sessionStorage
 		if (!sessionStorage.getItem("menuItems")) {
 			sessionStorage.setItem("menuItems", "[]");
 		}
@@ -54,23 +59,28 @@ export class UserChoice {
 		}
 
 		var list = JSON.parse(sessionStorage.getItem("menuItems"));
+
+		// store clicked element
 		var clickedElement = this.servicesList[index].name;
+		// empty index to store index of clickedElement
 		var indexOfClickedElement = -1;
 
+		// loop in nextMenu to get index of clickedElement(servicesList) equivalent in nextMenu
 		for(var i = 0; i < this.nextMenu.length; i++){
 			if(this.nextMenu[i].name === clickedElement){
 				indexOfClickedElement = i;
-				console.log(this.nextMenu[i].name);
 				break;
 			}
 		}
 
+		// set true if item is already stored
 		for (var i = 0; i < list.length; i++) {
 			if (list[i] == this.servicesList[index].name) {
 				this.servicesList[index].selected = true;
 			}
 		}
-		console.log(this.servicesList);
+
+		// actualize selected values and splice and push item
 		if (!this.servicesList[index].selected) {
 			list.push(this.servicesList[index].name);
 			this.nextMenu.push({ name: list[list.length -1], selected: false })
@@ -80,24 +90,31 @@ export class UserChoice {
 			this.nextMenu.splice(indexOfClickedElement, 1);
 			this.servicesList[index].selected = false;
 		}
+
+		// set firstItem value
 		if(this.nextMenu.length == 0){
 
 		} else {
 			this.firstItem = this.nextMenu[0].name.toLowerCase();
 		}
+
+		// store change in sessionStorage
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
 		
 	}
 	
+	// get color for selected view
 	getColor() {
 		return "#CF2127";
 	}
 
+	// get color for !selected view
 	getColor2() {
 		return "#000";
 	}
 
+	// set first nextMenu item on true for next page view
 	putSelecMenu() {
 		this.nextMenu[0].selected = true;
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));

@@ -1,34 +1,40 @@
+<!-- top menu -->
 <div class="container-fluid">
 	<nav class="row services-navbar">
 		<div class="vertical-center">
+			<!-- tfc logo for home btn -->
 			<div class="col-lg-2">
 				<a [routerLink]="['/home']"><img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
 			</div>
+			<!-- menu item -->
 			<div class="col-lg-7 v-center">
 				<a class="menu-item" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of selectedMenu; let i = index;" (click)="currentService(item.name, i)">
+					<!-- view if item already selected -->
 					<div class="menu-services" *ngIf="item.selected">
 						<img class="logo-menu" [src]="'../../../assets/img/service/' + item.name.toLowerCase() + 'Selec.png'"/>
 					</div>
+					<!-- view if item isn't selected -->
 					<div class="menu-services" *ngIf="!item.selected">
 						<img class="logo-menu" [src]="'../../../assets/img/service/' + item.name.toLowerCase() + '.png'"/>
 					</div>
 				</a>
 			</div>
+			<!-- price btn -->
 			<div class="col-lg-3  v-center">
 				<img class="logo-menu" src="../../../assets/img/service/finres.png">
 				<span>price</span>
 			</div>
 		</div>
 	</nav>
-	<div class="row change-service">
-		<a class="change-butt col-lg-12 v-center" type="button">Change services</a> 
-	</div>
 </div>
+<!-- dropdown menu -->
 <div class="container-fluid dropdown">
 	<div class="row">
 		<div class="col-lg-12">
 			<div [class.services-dropdown]="toggled" class="services-box">
+				<!-- items -->
 				<div class="col-lg-6" *ngFor="let service of menu; let i = index;">
+					<!-- view if item already selected -->
 					<div *ngIf="service.selected">
 						<div class="div-icons">
 							<img class="menu-icons" [src]="'../../../assets/img/service/' + service.name.toLowerCase() + 'Selec.png'"/>
@@ -41,6 +47,7 @@
 							</label>
 						</div>	
 					</div>
+					<!-- view if item isn't selected -->
 					<div *ngIf="!service.selected">
 						<div class="div-icons">
 							<img class="menu-icons" [src]="'../../../assets/img/service/' + service.name.toLowerCase() + '.png'"/>
@@ -54,7 +61,14 @@
 						</div>	
 					</div>
 				</div>
-				<p (click)="toggled = !toggled;">Change your services</p>
+				<!-- add function to reload page if toggled -->
+				<div *ngIf="toggled">
+					<p (click)="toggled = !toggled;" [routerLink]=" [ '../services/' + this.selectedMenu[0].name.toLowerCase()]">Change your services</p>
+				</div>
+				<!-- btn with no function -->
+				<div *ngIf="!toggled">
+					<p (click)="toggled = !toggled;">Change your services</p>
+				</div>
 			</div>
 		</div>
 	</div>
