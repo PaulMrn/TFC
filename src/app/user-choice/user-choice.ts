@@ -8,14 +8,18 @@ import {Component, OnInit} from '@angular/core';
 
 export class UserChoice implements OnInit{
   ngOnInit() {
-	  if (!sessionStorage.getItem("menuItems")) {
-			sessionStorage.setItem("menuItems", "[]");
-		}
-		if (!sessionStorage.getItem("itemsList")) {
-			sessionStorage.setItem("itemsList", "[]");
-		}
+	  
+	if (!sessionStorage.getItem("menuItems")) {
+		sessionStorage.setItem("menuItems", "[]");
+	}
+	if (!sessionStorage.getItem("itemsList")) {
+		sessionStorage.setItem("itemsList", "[]");
+	}
+	
     this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
 	this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
+	this.firstItem = this.nextMenu[0].name.toLowerCase();
+
   }
 
 	// first item in nextMenu to built router-link url
@@ -111,7 +115,7 @@ export class UserChoice implements OnInit{
 		// store change in sessionStorage
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-		
+		console.log(this.firstItem);
 	}
 	
 	// get color for selected view
