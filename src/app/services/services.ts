@@ -54,6 +54,14 @@ export class Services{
         break;
       }
     }
+    
+    var selectedInput: any = document.getElementById('selectedInput');
+    selectedInput.disabled = true;
+
+    if(this.selectedMenu.length == 1){
+      console.log('test');
+    }
+
     // set first item on true to actualize the view
     this.selectedMenu[0].selected= true;
   }

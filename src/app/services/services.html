@@ -55,7 +55,7 @@
 						<span class="services-title" [style.color]="getColor2()">{{service.name}}</span>
 						<div class="check">
 							<label class="switch" (click)="selectionSystem(service, i)">
-								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">
+								<input id="selectedInput" name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">
 								<div class="slider round"></div>
 							</label>
 						</div>	
