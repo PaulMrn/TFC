@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
 	selector: 'services',
@@ -6,7 +6,17 @@ import {Component} from '@angular/core';
 	templateUrl: './user-choice.html'
 })
 
-export class UserChoice {
+export class UserChoice implements OnInit{
+  ngOnInit() {
+	  if (!sessionStorage.getItem("menuItems")) {
+			sessionStorage.setItem("menuItems", "[]");
+		}
+		if (!sessionStorage.getItem("itemsList")) {
+			sessionStorage.setItem("itemsList", "[]");
+		}
+    this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
+	this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
+  }
 
 	// first item in nextMenu to built router-link url
 	public firstItem = "";
@@ -114,9 +124,4 @@ export class UserChoice {
 		return "#000";
 	}
 
-	// set first nextMenu item on true for next page view
-	putSelecMenu() {
-		this.nextMenu[0].selected = true;
-		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-	}
 }

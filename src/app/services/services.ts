@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppModule } from '../app.module';
 
@@ -8,7 +8,11 @@ import { AppModule } from '../app.module';
   templateUrl: './services.html'
 })
 
-export class Services{
+export class Services implements OnInit{
+  ngOnInit() {
+    this.selectedMenu = JSON.parse(sessionStorage.getItem('itemsList'));
+    this.selectedMenu[0].selected = true;
+  }
 
   // all menu item available
   public menu = JSON.parse(sessionStorage.getItem('menuItems'));
@@ -28,6 +32,11 @@ export class Services{
 
   // on switch btn in dropdown menu
   selectionSystem(service, index) {
+    console.log(this.selectedMenu);
+    if(this.selectedMenu.length == 1){
+      console.log('test');
+    }
+
     // actualize selected boolean
     if(this.menu[index].selected){
       this.menu[index].selected = false;
@@ -36,16 +45,16 @@ export class Services{
     }  
     
     // get first selectMenu item
-    if(this.menu[index].name == this.selectedMenu[0].name){
+    /*if(this.menu[index].name == this.selectedMenu[0].name){
         this.clickedService = this.selectedMenu[1].name.toLowerCase();
     } else {
       this.clickedService = this.selectedMenu[0].name.toLowerCase();
-    }
+    }*/
 
     // loop for adding and removing items
     for(var j = 0; j < this.selectedMenu.length; j++){
       // if exist already
-      if(this.menu[index].name == this.selectedMenu[j].name){
+      if(this.menu[index].name == this.selectedMenu[j].name && this.selectedMenu.length > 1){
         this.selectedMenu.splice([j], 1);
       }
       // if not
@@ -54,16 +63,10 @@ export class Services{
         break;
       }
     }
-    
-    var selectedInput: any = document.getElementById('selectedInput');
-    selectedInput.disabled = true;
-
-    if(this.selectedMenu.length == 1){
-      console.log('test');
-    }
 
     // set first item on true to actualize the view
     this.selectedMenu[0].selected= true;
+    console.log(this.selectedMenu);
   }
   
   // color for ngIf selected
