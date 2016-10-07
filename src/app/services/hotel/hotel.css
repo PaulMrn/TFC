@@ -1,0 +1,35 @@
+.hotel-container{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.choose-hotel-title{
+    padding-right: 40px;
+    font-size: 26px;
+    display: block;
+}
+
+.hotels-choices{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hotels-choices .hotel-choice{
+    position: relative;
+    margin-right: 30px;
+    margin-left: 30px;
+    width: 400px;
+    height: 250px;
+    background-color: #666;
+    box-shadow: 0px 0px 5px 2px #aaa;
+}
+
+.hotels-choices .hotel-choice .white-square{
+    opacity: .8;
+    position: absolute;
+    top: 25%;
+    left: 16.6%;
+    background-color: #fff;
+    height: 50%;
+    width: 66%;
+}
