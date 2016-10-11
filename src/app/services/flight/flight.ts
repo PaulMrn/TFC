@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'flight',
-  template: 'Flight'
+  templateUrl: './flight.html',
+  styleUrls: ['./flight.css']
 })
 export default class Flight { 
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'hotel',
-  template: 'Hotel'
+  templateUrl: './hotel.html',
+  styleUrls:['./hotel.css']
 })
 export default class Hotel { 
 }
