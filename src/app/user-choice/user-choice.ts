@@ -9,16 +9,15 @@ import {Component, OnInit} from '@angular/core';
 export class UserChoice implements OnInit{
   ngOnInit() {
 	  
-	if (!sessionStorage.getItem("menuItems")) {
+	/*if (!sessionStorage.getItem("menuItems")) {
 		sessionStorage.setItem("menuItems", "[]");
 	}
 	if (!sessionStorage.getItem("itemsList")) {
 		sessionStorage.setItem("itemsList", "[]");
 	}
-	
     this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
 	this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
-	this.firstItem = this.nextMenu[0].name.toLowerCase();
+	this.firstItem = this.nextMenu[0].name.toLowerCase();*/
 
   }
 

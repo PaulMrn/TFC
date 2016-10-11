@@ -27,15 +27,11 @@ export class Services implements OnInit{
     for (var j = 0; j < this.selectedMenu.length; j++) {  
       this.selectedMenu[j].selected = false;
 		}
-    this.selectedMenu[index].selected = true;
-  }
+      this.selectedMenu[index].selected = true;
+    }
 
   // on switch btn in dropdown menu
   selectionSystem(service, index) {
-    console.log(this.selectedMenu);
-    if(this.selectedMenu.length == 1){
-      console.log('test');
-    }
 
     // actualize selected boolean
     if(this.menu[index].selected){
@@ -43,16 +39,12 @@ export class Services implements OnInit{
     } else {
       this.menu[index].selected = true;
     }  
+
     
-    // get first selectMenu item
-    /*if(this.menu[index].name == this.selectedMenu[0].name){
-        this.clickedService = this.selectedMenu[1].name.toLowerCase();
-    } else {
-      this.clickedService = this.selectedMenu[0].name.toLowerCase();
-    }*/
 
     // loop for adding and removing items
     for(var j = 0; j < this.selectedMenu.length; j++){
+      
       // if exist already
       if(this.menu[index].name == this.selectedMenu[j].name && this.selectedMenu.length > 1){
         this.selectedMenu.splice([j], 1);
@@ -66,7 +58,12 @@ export class Services implements OnInit{
 
     // set first item on true to actualize the view
     this.selectedMenu[0].selected= true;
-    console.log(this.selectedMenu);
+
+    if(this.menu[index].name == this.selectedMenu[0].name && this.selectedMenu.length == 1){
+        this.menu[index].selected = true;
+      }
+    console.log(this.menu);
+    
   }
   
   // color for ngIf selected
