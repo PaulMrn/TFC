@@ -5,7 +5,7 @@ import {AppComponent} from "./app";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
-import { SDKModule } from './sdk/sdk.module';
+import {SDKModule} from './sdk/sdk.module';
 import {Services} from './services/services';
 import {Home} from './home/home';
 import {UserChoice} from './user-choice/user-choice';

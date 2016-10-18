@@ -39,7 +39,6 @@ export class Services implements OnInit{
     } else {
       this.menu[index].selected = true;
     }  
-
     
 
     // loop for adding and removing items
