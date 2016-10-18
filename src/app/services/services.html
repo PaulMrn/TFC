@@ -7,7 +7,7 @@
 				<a [routerLink]="['/home']"><img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
 			</div>
 			<!-- menu item -->
-			<div class="col-lg-7 v-center">
+			<div class="col-lg-8 v-center">
 				<a class="menu-item" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of selectedMenu; let i = index;" (click)="currentService(item.name, i)">
 					<!-- view if item already selected -->
 					<div class="menu-services" *ngIf="item.selected">
@@ -20,7 +20,7 @@
 				</a>
 			</div>
 			<!-- price btn -->
-			<div class="col-lg-3  v-center">
+			<div class="col-lg-2  v-center">
 				<img class="logo-menu" src="../../../assets/img/service/finres.png">
 				<span>price</span>
 			</div>
@@ -42,7 +42,7 @@
 						<span class="services-title" [style.color]="getColor()">{{service.name}}</span>
 						<div class="check">
 							<label class="switch" (click)="selectionSystem(service, i)">
-								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">								
+								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null" disabled>								
 								<div class="slider round"></div>
 							</label>
 						</div>	
@@ -55,7 +55,7 @@
 						<span class="services-title" [style.color]="getColor2()">{{service.name}}</span>
 						<div class="check">
 							<label class="switch" (click)="selectionSystem(service, i)">
-								<input id="selectedInput" name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null">
+								<input name={{service.name}} type="checkbox" [attr.checked]="service.selected ? true : null" disabled>
 								<div class="slider round"></div>
 							</label>
 						</div>	

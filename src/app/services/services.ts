@@ -61,7 +61,9 @@ export class Services implements OnInit{
     if(this.menu[index].name == this.selectedMenu[0].name && this.selectedMenu.length == 1){
         this.menu[index].selected = true;
       }
-    console.log(this.menu);
+
+    sessionStorage.setItem("menuItems", JSON.stringify(this.menu));
+		sessionStorage.setItem("itemsList", JSON.stringify(this.selectedMenu));
     
   }
   

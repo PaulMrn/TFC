@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HotelApi} from '../sdk/services/custom/Hotel';
 
 @Component({
 	selector: 'services',
@@ -50,21 +49,15 @@ export class UserChoice implements OnInit {
 
 		ngOnInit() {
 
-/*		if (!sessionStorage.getItem("menuItems")) {
-			sessionStorage.setItem("menuItems", "[]");
-			sessionStorage.setItem("itemsList", "[]");
-		} else {
+		if (window.sessionStorage.length == 2) {
 			this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
 			this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
 			this.firstItem = this.nextMenu[0].name.toLowerCase();
-		}*/
-		
-  }
+			sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
+			sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
+		}
 
-	constructor(private hotelApi: HotelApi) {
-		console.log(this.hotelApi);
-		console.log(this.hotelApi.findByIdDisponibilities);
-	}
+  }
 
 	// on click on available menu item
 	selectedServices(service, index) {
@@ -120,7 +113,7 @@ export class UserChoice implements OnInit {
 		// store change in sessionStorage
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-		console.log(this.firstItem);
+		/*		console.log(this.firstItem);*/
 	}
 
 	// get color for selected view
