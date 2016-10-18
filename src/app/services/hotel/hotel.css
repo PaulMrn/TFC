@@ -14,10 +14,12 @@
     margin-top: 20px;
 }
 
+.hotels-choices .square-hotel {
+    padding: 0px 20px;
+}
+
 .hotels-choices .hotel-choice{
     position: relative;
-    margin-right: 30px;
-    margin-left: 30px;
     width: 400px;
     height: 250px;
     background-color: #666;
