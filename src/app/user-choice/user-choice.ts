@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HotelApi} from '../sdk/services/custom/Hotel';
 
 @Component({
 	selector: 'services',
@@ -6,20 +7,7 @@ import {Component, OnInit} from '@angular/core';
 	templateUrl: './user-choice.html'
 })
 
-export class UserChoice implements OnInit{
-  ngOnInit() {
-	  
-	/*if (!sessionStorage.getItem("menuItems")) {
-		sessionStorage.setItem("menuItems", "[]");
-	}
-	if (!sessionStorage.getItem("itemsList")) {
-		sessionStorage.setItem("itemsList", "[]");
-	}
-    this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
-	this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
-	this.firstItem = this.nextMenu[0].name.toLowerCase();*/
-
-  }
+export class UserChoice implements OnInit {
 
 	// first item in nextMenu to built router-link url
 	public firstItem = "";
@@ -28,8 +16,8 @@ export class UserChoice implements OnInit{
 	// all menu item available
 	public servicesList = [
 		{
-		name: "Flight",
-		selected: false,
+			name: "Flight",
+			selected: false,
 		},
 		{
 			name: "Hotel",
@@ -60,6 +48,24 @@ export class UserChoice implements OnInit{
 			selected: false,
 		}]
 
+		ngOnInit() {
+
+/*		if (!sessionStorage.getItem("menuItems")) {
+			sessionStorage.setItem("menuItems", "[]");
+			sessionStorage.setItem("itemsList", "[]");
+		} else {
+			this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
+			this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
+			this.firstItem = this.nextMenu[0].name.toLowerCase();
+		}*/
+		
+  }
+
+	constructor(private hotelApi: HotelApi) {
+		console.log(this.hotelApi);
+		console.log(this.hotelApi.findByIdDisponibilities);
+	}
+
 	// on click on available menu item
 	selectedServices(service, index) {
 
@@ -79,8 +85,8 @@ export class UserChoice implements OnInit{
 		var indexOfClickedElement = -1;
 
 		// loop in nextMenu to get index of clickedElement(servicesList) equivalent in nextMenu
-		for(var i = 0; i < this.nextMenu.length; i++){
-			if(this.nextMenu[i].name === clickedElement){
+		for (var i = 0; i < this.nextMenu.length; i++) {
+			if (this.nextMenu[i].name === clickedElement) {
 				indexOfClickedElement = i;
 				break;
 			}
@@ -96,7 +102,7 @@ export class UserChoice implements OnInit{
 		// actualize selected values and splice and push item
 		if (!this.servicesList[index].selected) {
 			list.push(this.servicesList[index].name);
-			this.nextMenu.push({ name: list[list.length -1], selected: false })
+			this.nextMenu.push({ name: list[list.length - 1], selected: false })
 			this.servicesList[index].selected = true;
 		} else {
 			list.splice(list.indexOf(this.servicesList[index].name), 1);
@@ -105,7 +111,7 @@ export class UserChoice implements OnInit{
 		}
 
 		// set firstItem value
-		if(this.nextMenu.length == 0){
+		if (this.nextMenu.length == 0) {
 
 		} else {
 			this.firstItem = this.nextMenu[0].name.toLowerCase();
@@ -116,7 +122,7 @@ export class UserChoice implements OnInit{
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
 		console.log(this.firstItem);
 	}
-	
+
 	// get color for selected view
 	getColor() {
 		return "#CF2127";
