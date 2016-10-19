@@ -40,20 +40,24 @@
 	overflow: hidden;
 	border-bottom: 2px solid #222;
 	transition: all 0.5s;
-	padding-top: 50px;
+	padding-top: 40px;
 	-webkit-box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
 	-moz-box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
 	box-shadow: inset 0px 0px 10px 2px rgba(0,0,0,0.75);
 }
 
 .services-dropdown{
-	height: 420px;
+	height: 450px;
+}
+
+.service-div{
+	height: 100px;
 }
 
 .services-box p{
 	position: absolute;
 	cursor: pointer;
-	bottom: 3px;
+	bottom: 0px;
 	left: 45%;
 	text-decoration: none;
 	color: #656565;
@@ -65,7 +69,7 @@
 .div-icons{
 	display: inline-block;
 	width: 180px;
-	height: 80px;
+	height: 100px;
 	margin-left: 150px;
 }
 
@@ -73,11 +77,16 @@
 	width: 65px;
 }
 
+#car img{
+	width: 75px;
+	margin-top: 15px;
+}
+
 .services-title{
 	color: #CF2127;
 	font-size: 22px;
 	display: inline-block;
-	padding-top: 10px;
+	padding-top: 30px;
 }
 
 /* switch */
@@ -85,7 +94,7 @@
 .check{
 	display: inline-block;
 	float: right;
-	margin-top: 30px;
+	margin-top: 40px;
 	margin-right: 80px;
 	}
 

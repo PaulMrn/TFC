@@ -47,21 +47,31 @@ export class UserChoice implements OnInit {
 			selected: false,
 		}]
 
+		// on page init
 		ngOnInit() {
 
+		// if sessionStorage is already set
 		if (window.sessionStorage.length == 2) {
-			this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
-			this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
-			this.firstItem = this.nextMenu[0].name.toLowerCase();
-			sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
-			sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-		}
 
+			var arrLength = JSON.parse(sessionStorage.getItem('itemsList'));
+			console.log(arrLength.length);
+			// get it to "remember" previous user choices
+			if (arrLength != 0) {
+				this.nextMenu = JSON.parse(sessionStorage.getItem('itemsList'));
+				this.servicesList = JSON.parse(sessionStorage.getItem('menuItems'));
+				this.firstItem = this.nextMenu[0].name.toLowerCase();
+
+				// put them back in sessionStorage
+				sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
+				sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
+			}
+		}
+		
   }
 
 	// on click on available menu item
 	selectedServices(service, index) {
-
+		console.log(this.nextMenu.length);
 		// set sessionStorage
 		if (!sessionStorage.getItem("menuItems")) {
 			sessionStorage.setItem("menuItems", "[]");
@@ -113,7 +123,7 @@ export class UserChoice implements OnInit {
 		// store change in sessionStorage
 		sessionStorage.setItem("menuItems", JSON.stringify(this.servicesList));
 		sessionStorage.setItem("itemsList", JSON.stringify(this.nextMenu));
-		/*		console.log(this.firstItem);*/
+
 	}
 
 	// get color for selected view

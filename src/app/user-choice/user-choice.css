@@ -90,7 +90,19 @@
     background-color: #FFF;
     color: #F5858A;
     border: 2px solid #F5858A;
+}
 
+.validation-btn-2{
+    font-size: 22px;
+    color: #FFF;
+    background-color: #999;
+    padding: 20px 149px;
+    margin-top: 100px;
+    transition: 0.2s all;
+}
+
+.validation-btn-2:hover{
+    text-decoration: none;
 }
 
 .choices-footer{

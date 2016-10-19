@@ -33,9 +33,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="row next-btn">
+	<div *ngIf="nextMenu.length > 0" class="row next-btn">
 		<div class="col-lg-12">
 			<a class="validation-btn" [routerLink]=" [ '../services/' + firstItem ] ">OK</a>
+		</div>
+	</div>
+	<div *ngIf="nextMenu.length == 0" class="row next-btn">
+		<div class="col-lg-12">
+			<a class="validation-btn-2">Select your services first</a>
 		</div>
 	</div>
 </div>

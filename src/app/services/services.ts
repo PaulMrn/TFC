@@ -9,10 +9,6 @@ import { AppModule } from '../app.module';
 })
 
 export class Services implements OnInit{
-  ngOnInit() {
-    this.selectedMenu = JSON.parse(sessionStorage.getItem('itemsList'));
-    this.selectedMenu[0].selected = true;
-  }
 
   // all menu item available
   public menu = JSON.parse(sessionStorage.getItem('menuItems'));
@@ -20,6 +16,14 @@ export class Services implements OnInit{
   public selectedMenu = JSON.parse(sessionStorage.getItem('itemsList'));
   // first item in selectedMenu(top menu) after adding and removing items => to built router-link url
   public clickedService = "";
+  
+  // on page init
+  ngOnInit() {
+
+    // get the menu
+    this.selectedMenu = JSON.parse(sessionStorage.getItem('itemsList'));
+    this.selectedMenu[0].selected = true;
+  }
 
   // reload page and set item on selected = true
   currentService(item, index) {
