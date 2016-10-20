@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HotelApi} from '../../sdk/services/custom/Hotel';
+
 @Component({
   selector: 'hotel',
   templateUrl: './hotel.html',

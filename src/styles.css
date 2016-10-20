@@ -2,6 +2,11 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+::-webkit-scrollbar
+{
+  width: 0px;
+}
+
 .container-fluid, 
 .row,
 .col-lg-1,

@@ -1,2 +1,12 @@
-<a [routerLink]="['/user-choice']">Choisissez vos services</a>
-<h3>Home</h3>
+<div class="container-fluid">
+  <div class="row">
+    <label for="evenList">Choose your event :</label>
+    <select id="eventList" #eventList (change)="selectedEvent(eventList.value)">
+      <option value=""></option>
+      <option *ngFor="let event of events; let i = index;" type="" [value]="event.name">{{event.name}}</option> 
+    </select>
+    <div>
+      <a [routerLink]="['../user-choice']">Choisissez vos services</a>
+    </div>
+  </div>
+</div>

@@ -4,11 +4,11 @@
 		<div class="vertical-center">
 			<!-- tfc logo for home btn -->
 			<div class="col-lg-2">
-				<a [routerLink]="['/home']"><img class="logo-services" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
+				<a [routerLink]="['/home']"><img class="tfc-logo" alt="logo travel fashion club" src="../../../assets/img/logo_tfc.png"></a>
 			</div>
 			<!-- menu item -->
 			<div class="col-lg-8 v-center">
-				<a class="menu-item" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of selectedMenu; let i = index;" (click)="currentService(item.name, i)">
+				<a class="menu-item" [attr.id]="item.name.toLowerCase() + '-top-menu'" [routerLink]="['/services/' + item.name.toLowerCase()]" *ngFor="let item of selectedMenu; let i = index;" (click)="currentService(item.name, i)">
 					<!-- view if item already selected -->
 					<div class="menu-services" *ngIf="item.selected">
 						<img class="logo-menu" [src]="'../../../assets/img/service/' + item.name.toLowerCase() + 'Selec.png'"/>
